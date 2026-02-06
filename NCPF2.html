@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Complaint Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ===== Global Styles ===== */
+    * { box-sizing: border-box; font-family: "Segoe UI", Arial, sans-serif; }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background: url("https://media.licdn.com/dms/image/v2/D5612AQGbgZCHUgK1Gg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1737435418214?e=2147483647&v=beta&t=qZn5arnzcnnha_vAiaU1dW4RAtYzLqsk9aadBMPmZJI") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+    }
+    body::before {
+      content: "";
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 63, 107, 0.55); /* Overlay for readability */
+      z-index: -1;
+    }
+
+    a { text-decoration: none; color: #0077b6; }
+    a:hover { color: #0096c7; }
+
+    /* ===== Header ===== */
+    header {
+      background: linear-gradient(135deg, #003f6b, #005b96);
+      color: white; text-align: center; padding: 25px; border-bottom: 4px solid #0d47a1;
+    }
+    header h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
+    header p { margin-top: 6px; font-size: 16px; opacity: 0.9; }
+
+
+    /* ===== Section Styles ===== */
+    section {
+      display: none; padding: 25px;
+      max-width: 950px; margin: 25px auto;
+      background: #ffffffdd; border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    section.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #1976d2; margin-top: 0;
+      border-left: 5px solid #26a69a; padding-left: 10px;
+    }
+
+    /* ===== Forms ===== */
+input, textarea, button.submit-btn {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+/* Submit button styling */
+button.submit-btn,
+input.submit-btn {
+  background: linear-gradient(135deg, #005b96);
+  color: white;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.submit-btn:hover,
+input.submit-btn:hover {
+  background: linear-gradient(135deg, #005b96);
+  transform: scale(1.03);
+}
+
+
+
+    /* ===== Footer ===== */
+    footer { text-align: center; padding: 12px; background: linear-gradient(135deg, #003f6b); color: white; font-size: 14px; margin-top: auto; }
+
+    /* ===== Success Message ===== */
+    .success-message {
+      display: none; position: fixed; bottom: 20px; right: 20px;
+      background: #43a047; color: white; padding: 12px 18px;
+      border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      animation: slideUp 0.5s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      nav { flex-direction: column; }
+      .portal-card { width: 90%; }
+      iframe { width: 100%; height: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Department of Water Resources</h1>
+  </header>
+
+
+
+  <!-- Complaint Form -->
+    <section class="active">
+    <h2>Register a Complaint</h2>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+<META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form id="complaintForm"
+      action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00Dfj00000HWUis"
+      method="POST"
+      onsubmit="return validateForm();">
+
+<input type=hidden name="orgid" value="00Dfj00000HWUis">
+<input type=hidden name="retURL" value="http://">
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="atharvadeshmukh77777@gmail.com">                                 -->
+<!--  ----------------------------------------------------------------------  -->
+
+<br><h3> Address Details: </h3><br>
+
+Address Name:<input  id="00Nfj000030VXEH" maxlength="100" name="00Nfj000030VXEH" size="20" type="text" required /><br>
+
+Street:<input  id="00Nfj000031Agwj" maxlength="20" name="00Nfj000031Agwj" size="20" type="text" required /><br>
+
+City:<input  id="00Nfj0000317FVB" maxlength="15" name="00Nfj0000317FVB" size="20" type="text" required /><br>
+
+Zip /Postal Code:<input  id="00Nfj000031AWVy" name="00Nfj000031AWVy" size="20" type="text" required /><br>
+
+State:<input  id="00Nfj0000319ams" maxlength="25" name="00Nfj0000319ams" size="20" type="text" required /><br>
+
+Country:<input  id="00Nfj0000316Qw5" maxlength="40" name="00Nfj0000316Qw5" size="20" type="text" required /><br>
+
+Latitude:<input  id="00Nfj000030VY5V" name="00Nfj000030VY5V" size="20" type="text" /><br>
+
+Longitude:<input  id="00Nfj000030VY8j" name="00Nfj000030VY8j" size="20" type="text" /><br><br>
+
+Address Type:<select  id="00Nfj000030VXW1" name="00Nfj000030VXW1" title="Address Type"><option value="">--None--</option><option value="Residential">Residential</option>
+<option value="Commercial">Commercial</option>
+<option value="Government">Government</option>
+<option value="Rural">Rural</option>
+<option value="Urban">Urban</option>
+<option value="Home">Home</option>
+<option value="Office">Office</option>
+<option value="Temporary">Temporary</option>
+<option value="School">School</option>
+<option value="College">College</option>
+</select><br><br><br>
+
+Landmark:<input  id="00Nfj000030VXar" maxlength="100" name="00Nfj000030VXar" size="20" type="text" /><br>
+
+House / Flat No:<input  id="00Nfj000030VXsb" maxlength="5" name="00Nfj000030VXsb" size="20" type="text" /><br>
+
+Ward / Zone:<input  id="00Nfj000030VXz3" maxlength="100" name="00Nfj000030VXz3" size="20" type="text" /><br>
+
+Water Connection Number:<input  id="00Nfj000030VY0f" maxlength="10" name="00Nfj000030VY0f" size="20" type="text" required /><br>
+
+Meter Number:<input  id="00Nfj000030VY2H" name="00Nfj000030VY2H" size="20" type="text" required /><br><br>
+
+Active Connection:<input  id="00Nfj000030VWQI" name="00Nfj000030VWQI" type="checkbox" value="1" /><br><br><hr><br>
+
+<h3> Customer Details: </h3><br>
+
+Salutation:<select  id="00Nfj000030Vb4z" name="00Nfj000030Vb4z" title="Salutation"><option value="">--None--</option><option value="Mr.">Mr.</option>
+<option value="Ms.">Ms.</option>
+<option value="Mrs.">Mrs.</option>
+<option value="Dr.">Dr.</option>
+<option value="Prof.">Prof.</option>
+<option value="Mx.">Mx.</option>
+</select><br><br><br>
+
+First Name:<input  id="00Nfj000030VogX" maxlength="40" name="00Nfj000030VogX" size="20" type="text" required /><br>
+
+Last Name:<input  id="00Nfj000030Vr1h" maxlength="80" name="00Nfj000030Vr1h" size="20" type="text" required /><br>
+
+Phone:<input  id="00Nfj000030YItX" maxlength="40" name="00Nfj000030YItX" onkeydown="formatPhoneOnEnter(this, event);" size="20" type="text" required /><br>
+
+Email:<input  id="00Nfj000030YSbR" maxlength="80" name="00Nfj000030YSbR" size="20" type="text" required /><br><br>
+
+Customer Type:<select  id="00Nfj000030YSl7" name="00Nfj000030YSl7" title="Customer Type" required><option value="">--None--</option><option value="Owner">Owner</option>
+<option value="Tenant">Tenant</option>
+<option value="Authorized Representative">Authorized Representative</option>
+</select><br><br><br>
+
+Preferred Contact Method:<select  id="00Nfj000030YSun" name="00Nfj000030YSun" title="Preferred Contact Method"><option value="">--None--</option><option value="Phone">Phone</option>
+<option value="Email">Email</option>
+<option value="WhatsApp">WhatsApp</option>
+</select><br><br><br>
+
+Government ID Type:<select  id="00Nfj000030YT9J" name="00Nfj000030YT9J" title="Government ID Type" required><option value="">--None--</option><option value="Aadhaar">Aadhaar</option>
+<option value="PAN">PAN</option>
+<option value="Passport">Passport</option>
+<option value="License">License</option>
+</select><br><br><br>
+
+Government ID Number:<input  id="00Nfj000030YTCX" maxlength="12" name="00Nfj000030YTCX" size="20" type="text" required /><br><br>
+
+Is Primary Customer:<input  id="00Nfj000030YT1G" name="00Nfj000030YT1G" type="checkbox" value="1" /><br><br><hr><br>
+
+<h3> Complaint Details: </h3><br>
+
+<label for="subject">Subject</label><input  id="subject" maxlength="80" name="subject" size="20" type="text" required /><br>
+
+<label for="description">Description</label><textarea name="description" required></textarea><br><br>
+
+<label for="priority">Priority</label><select  id="priority" name="priority" required><option value="">--None--</option><option value="High">High</option>
+<option value="Medium">Medium</option>
+<option value="Low">Low</option>
+<option value="Emergency">Emergency</option>
+</select><br><br><br>
+
+Complaint Type:<select  id="00Nfj00002zve7p" name="00Nfj00002zve7p" title="Complaint Type" required><option value="">--None--</option><option value="Water Supply">Water Supply</option>
+<option value="Meter Issue">Meter Issue</option>
+<option value="Leakage">Leakage</option>
+<option value="Water Quality">Water Quality</option>
+<option value="Billing Issue">Billing Issue</option>
+<option value="Other">Other</option>
+<option value="New Connection">New Connection</option>
+</select><br><br><br>
+
+Complaint Sub-Type:<select  id="00Nfj00002zx9kf" name="00Nfj00002zx9kf" title="Complaint Sub-Type" required><option value="">--None--</option><option value="No Water">No Water</option>
+<option value="Low Pressure">Low Pressure</option>
+<option value="Intermittent Supply">Intermittent Supply</option>
+<option value="Dirty Water">Dirty Water</option>
+<option value="Smell Issue">Smell Issue</option>
+<option value="Pipeline Leakage">Pipeline Leakage</option>
+<option value="Meter Leakage">Meter Leakage</option>
+<option value="Underground Leakage">Underground Leakage</option>
+<option value="Wrong Bill Amount">Wrong Bill Amount</option>
+<option value="Duplicate Bill">Duplicate Bill</option>
+<option value="Bill Not Generated">Bill Not Generated</option>
+<option value="Meter Not Working">Meter Not Working</option>
+<option value="Meter Broken">Meter Broken</option>
+<option value="Application Delay">Application Delay</option>
+<option value="Document Issue">Document Issue</option>
+</select><br><br><br>
+
+Resolution Category:<select  id="00Nfj00002zvxdV" name="00Nfj00002zvxdV" title="Resolution Category"><option value="">--None--</option><option value="Temporary Fix">Temporary Fix</option>
+<option value="Permanent Fix">Permanent Fix</option>
+</select><br><br><br>
+
+<input type="hidden" id="external" name="external" value="1">
+
+<input type="submit" value="Submit" class="submit-btn">
+</form>
+
+
+<div id="successMsg"
+       style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold;">
+    ✅ Complaint submitted successfully!
+  </div>
+   
+    
+  </section>
+
+
+
+  <script>
+
+const complaintMap = {
+  "Water Supply": ["No Water", "Low Pressure", "Intermittent Supply"],
+  "Meter Issue": ["Meter Not Working", "Meter Broken"],
+  "Leakage": ["Pipeline Leakage", "Meter Leakage", "Underground Leakage"],
+  "Water Quality": ["Dirty Water", "Smell Issue"],
+  "Billing Issue": ["Wrong Bill Amount", "Duplicate Bill", "Bill Not Generated"],
+  "New Connection": ["Application Delay", "Document Issue"]
+};
+
+const complaintType = document.getElementById("00Nfj00002zve7p");
+const subType = document.getElementById("00Nfj00002zx9kf");
+
+complaintType.addEventListener("change", () => {
+  const value = complaintType.value;
+  subType.innerHTML = '<option value="">--None--</option>';
+
+  if (value === "Other" || !complaintMap[value]) {
+    subType.required = false;
+    return;
+  }
+
+  subType.required = true;
+  complaintMap[value].forEach(opt => {
+    const o = document.createElement("option");
+    o.value = opt;
+    o.text = opt;
+    subType.appendChild(o);
+  });
+});
+
+document.querySelector("form").addEventListener("submit", e => {
+  const checks = [
+    [/^\d{6}$/, "Zip / Postal Code must be exactly 6 digits", "00Nfj000031AWVy"],
+    [/^\d{1,4}$/, "Water Connection Number must be up to 4 digits", "00Nfj000030VY0f"],
+    [/^\d{1,4}$/, "Meter Number must be up to 4 digits", "00Nfj000030VY2H"],
+    [/^\d{10}$/, "Phone must be exactly 10 digits", "00Nfj000030YItX"],
+    [/^\d{12}$/, "Government ID must be exactly 12 digits", "00Nfj000030YTCX"],
+    [/^[a-zA-Z0-9._%+-]+@gmail\.com$/, "Email must end with @gmail.com", "00Nfj000030YSbR"]
+  ];
+
+  for (let [regex, msg, id] of checks) {
+    const field = document.getElementById(id);
+    if (!regex.test(field.value)) {
+      alert(msg);
+      field.focus();
+      e.preventDefault();
+      return;
+    }
+  }
+
+});
+
+const requiredFields = [
+  "00Nfj000030VXEH", // Address Name
+  "00Nfj000031Agwj", // Street
+  "00Nfj0000317FVB", // City
+  "00Nfj0000319ams", // State
+  "00Nfj0000316Qw5", // Country
+  "00Nfj000030VogX", // First Name
+  "00Nfj000030Vr1h", // Last Name
+  "00Nfj000030YSl7", // Customer Type
+  "00Nfj000030YT9J", // Govt ID Type
+  "subject",
+  "description",
+  "priority"
+];
+
+for (let id of requiredFields) {
+  const field = document.getElementById(id);
+  if (!field || !field.value.trim()) {
+    
+    field.focus();
+    e.preventDefault();
+    
+  }
+}
+
+
+</script>
+
+ <footer>&copy; Customer Care Hub 💧 | Department of Water Resources</footer>
+
+</body>
+</html>
