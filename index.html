@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Department of Water Resources</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+        /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #005b96;
+    color: white;
+    padding: 1rem 0;
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hero Banner */
+.hero {
+    background: #0074b7 url('water-banner.jpg') center/cover no-repeat;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.hero-content h1 {
+    font-size: 2.5rem;
+}
+
+/* Sections */
+.section {
+    padding: 2rem 0;
+}
+.container {
+    width: 90%;
+    margin: auto;
+}
+.cards {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.card {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    flex: 1;
+}
+
+/* Footer */
+footer {
+    background: #003f6b;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+/* ===== Global Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+    color: #222;
+    background: #f5f7fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ===== Header ===== */
+header {
+    background: linear-gradient(90deg, #003f6b, #005b96);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+}
+
+.logo span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* ===== Hero ===== */
+.hero {
+    background-image: url("https://assets.visitorscoverage.com/production/wp-content/uploads/2024/01/water-conservation-header-1.webp");
+    background-size: cover;
+    background-position: center;
+    height: 380px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   /* LEFT positioning */
+    padding-left: 5%;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 63, 107, 0.55);
+}
+
+.hero-content {
+    position: relative;
+    color: #fff;
+    text-align: left;
+    max-width: 1100px;
+    width: 90%;
+}
+
+.hero-content h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+/* ===== Sections ===== */
+.section {
+    padding: 3rem 0;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #003f6b;
+    position: relative;
+}
+
+.section h2::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #00a8cc;
+    display: block;
+    margin: 0.5rem auto;
+    border-radius: 2px;
+}
+
+.section p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* ===== About List ===== */
+#about ul {
+    list-style: none;
+    margin: 1.2rem 0;
+}
+
+#about li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+}
+
+#about li i {
+    color: #005b96;
+    margin-right: 0.6rem;
+    font-size: 1.1rem;
+}
+
+/* ===== Schemes Cards ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    color: #005b96;
+    margin-bottom: 0.6rem;
+}
+
+.card ul {
+    list-style: none;
+}
+
+.card li {
+    margin-bottom: 0.4rem;
+}
+
+.card li i {
+    color: #00a8cc;
+    margin-right: 0.5rem;
+}
+
+/* ===== Portals ===== */
+/* ===== Portals Section ===== */
+#portals {
+    background: linear-gradient(135deg, #f4f9ff, #e9f3ff);
+    overflow: hidden;
+}
+
+/* Section Heading */
+#portals h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #003f6b;
+    font-size: 2rem;
+}
+
+/* Left-to-right aligned layout */
+.portal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;   /* LEFT → RIGHT */
+    align-items: stretch;
+}
+
+/* Portal Cards */
+.portal-card {
+    background: #ffffff;
+    width: 300px;
+    margin: 0 -12px 25px 0;        /* subtle SIDE overlap */
+    border-radius: 14px;
+    padding: 1.6rem 1rem;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* CURVED TOP ACCENT */
+.portal-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 84%;
+    height: 8px;
+    background: linear-gradient(90deg, #005b96, #00a8cc);
+    border-radius: 0 0 30px 30px;  /* curve effect */
+}
+
+/* Hover brings card forward */
+.portal-card:hover {
+    transform: translateY(-6px);
+    z-index: 5;
+    box-shadow: 0 14px 32px rgba(0, 63, 107, 0.28);
+}
+
+/* Icon */
+.portal-card i {
+    font-size: 30px;
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+/* Text */
+.portal-card p {
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Button */
+.portal-card a {
+    display: inline-block;
+    padding: 0.5rem 1.3rem;
+    background: #005b96;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: background 0.3s ease;
+}
+
+.portal-card a:hover {
+    background: #003f6b;
+}
+
+/* ===== Mobile Safety ===== */
+@media (max-width: 768px) {
+    .portal-links {
+        justify-content: center;
+    }
+
+    .portal-card {
+        width: 90%;
+        margin: 0 0 1.5rem 0;
+    }
+}
+
+
+
+
+
+
+/* ===== Complaint Section ===== */
+#complaint {
+    background: #fff;
+    border-top: 4px solid #005b96;
+    text-align: center;
+}
+
+/* ===== Contact ===== */
+#contact {
+    background: #003f6b;
+    color: #fff;
+    text-align: center;
+}
+
+#contact h2 {
+    color: #fff;
+}
+
+#contact h2::after {
+    background: #00e1ff;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #002a4d;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+/* ===== Complaint Button Section ===== */
+.complaint-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #005b96, #0077b6);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 30px;
+    box-shadow: 0 6px 15px rgba(0,91,150,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.complaint-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,91,150,0.4);
+}
+
+.complaint-btn i {
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+            
+                <span>Department of Water Resources</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Dept</a></li>
+                    <li><a href="#schemes">Schemes & Services</a></li>
+                    <li><a href="#portals">Portals</a></li>
+                    <li><a href="#complaint">Register Complaint</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== Hero Banner ===== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>WELCOME TO THE</h1>
+            <h1>DEPARTMENT OF</h1>
+            <h1>WATER RESOURCES</h1>
+        </div>
+    </section>
+
+    <!-- ===== About Section ===== -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About the Department</h2>
+            <p>This department is responsible for planning and development of water resources,
+               river basin management, and project implementation in India.</p>
+
+              <p>
+                  Water is the foundation of life on Earth. From drinking and cooking to
+                  agriculture, sanitation, and industry, every aspect of human existence
+                  depends on the availability of clean and safe water.
+              </p>
+
+              <ul>
+                  <li>
+                  <i class="fa-solid fa-droplet"></i>
+                  Only about 1% of Earth’s water is easily accessible for human use
+                  </li>
+                  <li>
+                  <i class="fa-solid fa-seedling"></i>
+                  Agriculture consumes the largest share of freshwater resources
+                  </li>
+                  <li>
+                  <i class="fa-solid fa-people-group"></i>
+                  Millions of people face water scarcity due to pollution and misuse
+                  </li>
+                  <li>
+                  <i class="fa-solid fa-leaf"></i>
+                  Healthy water systems protect ecosystems and biodiversity
+                  </li>
+              </ul>
+
+              <p>
+                  Responsible water usage, timely reporting of water-related issues, and
+                  sustainable management practices are essential to ensure water security
+                  for present and future generations.
+              </p>
+
+              <p>
+                  This portal enables citizens to register water complaints,
+                  explore water management initiatives, and learn about
+                  rainwater harvesting and official government services.
+              </p>
+        </div>
+    </section>
+
+    <!-- ===== Schemes & Services ===== -->
+    <section id="schemes" class="section">
+        <div class="container">
+            <h2>Schemes & Services</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Water Management Schemes</h3>
+                    <ul>
+                      <li><i class="fa-solid fa-faucet-drip"></i>Jal Jeevan Mission – Safe and adequate drinking water through household tap connections in rural areas.</li>
+                      <li><i class="fa-solid fa-water"></i>Atal Bhujal Yojana – Community-led sustainable groundwater management program.</li>
+                      <li><i class="fa-solid fa-recycle"></i>Namami Gange Programme – Conservation and rejuvenation of the Ganga River.</li>
+                      <li><i class="fa-solid fa-chart-line"></i>National Water Mission – Focus on water-use efficiency and conservation.</li>
+                    </ul><br><br>
+                    <h3>Current Initiatives</h3>
+                    <ul>
+                      <li><i class="fa-solid fa-droplet"></i> Leakage detection drives in pipelines.</li>
+                      <li><i class="fa-solid fa-seedling"></i> Promoting drip irrigation for farmers.</li>
+                      <li><i class="fa-solid fa-clipboard-check"></i> Regular water audits in communities.</li>
+                      <li><i class="fa-solid fa-school"></i> Awareness programs in schools and colleges.</li>
+                      <li><i class="fa-solid fa-house"></i> Encouraging efficient household water use.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Rainwater Harvesting Schemes</h3>
+                    <ul>
+                      <li><i class="fa-solid fa-water"></i>Ministry of Jal Shakti – Guidelines and programs promoting harvesting at household & community level.</li>
+                      <li><i class="fa-solid fa-leaf"></i>PMKSY Water Harvesting Support – Supports water harvesting structures for irrigation & groundwater recharge.</li>
+                      <li><i class="fa-solid fa-landmark"></i>Urban Rainwater Harvesting Guidelines – Mandates and supports systems in new government & private buildings.</li>
+                    </ul><br><br>
+                    <h3>Methods Used</h3>
+                    <ul>
+                      <li><i class="fa-solid fa-building"></i> Rooftop collection tanks.</li>
+                      <li><i class="fa-solid fa-arrow-down"></i> Recharge pits for groundwater.</li>
+                      <li><i class="fa-solid fa-house-chimney"></i> Mandatory systems in new buildings.</li>
+                      <li><i class="fa-solid fa-people-group"></i> Community harvesting ponds.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Portal ===== -->
+    <section id="portals" class="section">
+        <div class="container">
+            <h2>Official Government Portals</h2>
+            <div class="portal-links">
+              <div class="portal-card">
+                <i class="fa-solid fa-water"></i>
+                <p>Ministry of Jal Shakti</p>
+                <a href="https://jalshakti-ddws.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-leaf"></i>
+                <p>PMKSY Water Harvesting Support<br>(Pradhan Mantri Krishi Sinchai Yojana)</p>
+                <a href="https://pmksy.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-landmark"></i>
+                <p>Urban Rainwater Harvesting Guidelines</p>
+                <a href="https://mohua.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-faucet-drip"></i>
+                <p>Jal Jeevan Mission</p>
+                <a href="https://jaljeevanmission.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-water"></i>
+                <p>Atal Bhujal Yojana</p>
+                <a href="https://ataljal.mowr.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-recycle"></i>
+                <p>Namami Gange Programme</p>
+                <a href="https://nmcg.nic.in/" target="_blank">Visit Portal</a>
+              </div>
+              <div class="portal-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>National Water Mission</p>
+                <a href="https://nwm.gov.in/" target="_blank">Visit Portal</a>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Complaint ===== -->
+    <section id="complaint" class="section">
+        <div class="container">
+            <h2>Register Complaint</h2>
+            <p>Contact list of departments and officials.</p>
+
+            <a href="file:///D:/Salesforce%20Projects/Water%20Portal/NCPF2.html" target="_blank" class="complaint-btn">
+                <i class="fa-solid fa-pen-to-square"></i> Register Your Complaint
+            </a>
+        </div>
+    </section>
+
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Email: info@dowr.gov.in | Phone: +91-11-XXXXXXX</p>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <div class="container">
+            <p>&copy; Customer Care Hub 💧 | Department of Water Resources</p>
+        </div>
+    </footer>
+
+</body>
+</html>
